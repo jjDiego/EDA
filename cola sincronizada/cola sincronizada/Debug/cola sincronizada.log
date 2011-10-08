@@ -1,0 +1,13 @@
+﻿Build started 07/10/2011 01:55:06 p.m..
+     1>Project "C:\Users\Diego\Documents\Visual Studio 2010\Projects\cola sincronizada\cola sincronizada\cola sincronizada.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\cola sincronizada.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Diego\Documents\Visual Studio 2010\Projects\cola sincronizada\tbb40_20110809oss" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\diego\documents\visual studio 2010\projects\cola sincronizada\cola sincronizada\main.cpp(5): fatal error C1083: Cannot open include file: 'tbb/tbb.h': No such file or directory
+     1>Done Building Project "C:\Users\Diego\Documents\Visual Studio 2010\Projects\cola sincronizada\cola sincronizada\cola sincronizada.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.20
