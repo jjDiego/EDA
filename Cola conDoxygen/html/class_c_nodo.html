@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>ColaTBB: CNodo Class Reference</title>
+<title>Cola Sincronizada Doxygen: CNodo Class Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ColaTBB
+   <div id="projectname">Cola Sincronizada Doxygen
    
    </div>
    
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -69,11 +70,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">CNodo Class Reference</div>  </div>
@@ -82,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- doxytag: class="CNodo" -->
 <p><a href="class_c_nodo-members.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_nodo.html#af44228f58547032ab5a2108e544e45c6">CNodo</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af343b1f6cf3a121ad55cd6dd79e68648"></a><!-- doxytag: member="CNodo::iDato" ref="af343b1f6cf3a121ad55cd6dd79e68648" args="" -->
@@ -89,8 +95,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>iDato</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa710377cd226202a6144639a4ce2fd3f"></a><!-- doxytag: member="CNodo::pSiguiente" ref="aa710377cd226202a6144639a4ce2fd3f" args="" -->
 <a class="el" href="class_c_nodo.html">CNodo</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pSiguiente</b></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Esta clase representa a un nodo dentro de la cola, el cual contiene su dato y un puntero que contiene la direccion de memoria de otro nodo, o de nada (vacio-cuando temrina la cola) </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_c_nodo.html">CNodo</a></td><td>Clase que contiene los nodos que de la cola </td></tr>
+    <tr><td class="paramname">iDato</td><td>Es la variable que contiene el dato (en este caso de tipo entero) </td></tr>
+    <tr><td class="paramname">pSiguiente</td><td>Es el puntero que contiene la direccion de memoria (que apunta) al nodo siguiente </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af44228f58547032ab5a2108e544e45c6"></a><!-- doxytag: member="CNodo::CNodo" ref="af44228f58547032ab5a2108e544e45c6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNodo::CNodo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Este es el constructor del nodo el cual tomara como datos iniciales 0 y una direccion de memoria vacia (NULL) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>main.cpp</li>
+<li><a class="el" href="main_8cpp.html">main.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -98,7 +132,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>iDato</b></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +144,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>iDato</b></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 7 2011 14:17:24 for ColaTBB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 10 2011 20:38:14 for Cola Sincronizada Doxygen by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -1,3 +1,14 @@
+/**
+* @file main.cpp
+* @brief en este documento se programa una cola sincronizada
+* presentando sus funciones básicas y las que se requieren.
+*
+* @author Diego Velásquez Ríos
+*
+* @date 10/10/2011
+*/
+
+
 #include <cstdio>
 #include <iostream>
 #include <cstdlib>
@@ -10,6 +21,14 @@
 //using namespace tbb;
 using namespace std;
 
+
+/**
+* Esta clase representa a un nodo dentro de la cola, el cual contiene su dato y un puntero
+* que contiene la direccion de memoria de otro nodo, o de nada (vacio-cuando temrina la cola)
+* @param CNodo Clase que contiene los nodos que de la cola
+* @param iDato Es la variable que contiene el dato (en este caso de tipo entero)
+* @param pSiguiente Es el puntero que contiene la direccion de memoria (que apunta) al nodo siguiente
+*/
 class CNodo{
 	public:
 		CNodo();
@@ -18,15 +37,28 @@ class CNodo{
 };
 
 
+/**
+* Este es el constructor del nodo el cual tomara como datos
+* iniciales 0 y una direccion de memoria vacia (NULL)
+*/
 CNodo::CNodo(){
 	iDato=0;
 	pSiguiente=NULL;
 }
 
 
+/**
+* @param myMutex es un mutex de la librería TBB (Threading Building Blocks)
+*/
 tbb::mutex myMutex;
 
 
+/**
+* Esta clase representa a la cola
+* @param pCabeza parametro que contiene la direccion de memoria a la cabeza de la cola
+* @param pFinal Parametro que apunta al último nodo de la cola
+* @param total es un parámetro de tipo entero que almacenará la cantidad actual de nodos que tiene la cola
+*/
 class Cola{
 		CNodo * pCabeza;
 		CNodo * pFinal;
@@ -43,7 +75,9 @@ class Cola{
 };
 
 
-
+/**
+* @brief Constructor por defecto de la cola
+*/
 Cola::Cola(){
 
     pCabeza=NULL;
@@ -52,9 +86,20 @@ Cola::Cola(){
 };
 
 
+/**
+* @brief Funcion que devuelve el tamaño actual de la cola
+* 
+* @param total Tamaño actual de la cola
+*/
 int Cola::DevElto(){return total;}
 
-int Cola::EsColaVacia(){ //Devuelve 1 si esta vacia y 0 si esta cargada.
+
+
+/**
+* @brief Si la cola se encuentra vacía retorna un valor de 1
+* en caso contrario retorna 0
+*/
+int Cola::EsColaVacia(){
 
     if(pCabeza==NULL){
         return 1;
@@ -62,17 +107,26 @@ int Cola::EsColaVacia(){ //Devuelve 1 si esta vacia y 0 si esta cargada.
 	else{return 0;}
 }
 
-
+/**
+* @brief Ingresa un nuevo nodo al final de la cola
+* @param n Nuevo dato de tipo entero que será ingresado como nodo a la cola
+* @param 
+*/
 void Cola::MeterEnCola(int n){
 
     CNodo*nodo=new CNodo();
 	nodo->iDato=n;
+	/**@a myMutex.lock() el mutex se bloquea para que en caso de que otra hebra 
+	* quiera modificar este elemento, se detenga hasta que se desbloquee
+	*/
 	myMutex.lock();
+	/** @brief en caso que la cola este vacía el dato o nodo ingresado sera la cabeza y final de la cola*/
 	if (EsColaVacia()==1){
 		pCabeza=nodo;
 		pFinal=pCabeza;
 		total ++;
 	}
+	/** @brief en caso que la cola NO este vacía el dato o nodo será ingresado al final de la cola*/
 	else{
 
         pFinal->pSiguiente=nodo;
@@ -80,11 +134,15 @@ void Cola::MeterEnCola(int n){
 		pFinal=nodo;
 		total ++;
 	}
+	/**@a myMutex.unlock() una vez que se termine la operacion de MeterEnCola() del nodo apuntado 
+	* el mutex será liberado (desbloqueado) y cualquier otra hebra podrá modificarlo
+	*/
     myMutex.unlock();
 }
 
 
-
+/**@brief Retorna el primer elemento de la cola
+*/
 int Cola::VerPrimerElto(){
 
     if (EsColaVacia()==1){
@@ -99,12 +157,15 @@ int Cola::VerPrimerElto(){
 
 }
 
-
+/**@brief Elimina el último elemento de la cola
+*/
 int Cola::SacarDeCola(){
 
     if (EsColaVacia()==1){cout<<"La cola esta vacia."<<endl;}
 	else{
-
+		/**@a myMutex.lock() el mutex se bloquea para que en caso de que otra hebra 
+		* quiera modificar este elemento, se detenga hasta que se desbloquee
+		*/
         myMutex.lock();
         int resp=pCabeza->iDato;
         CNodo*Aux;
@@ -112,6 +173,9 @@ int Cola::SacarDeCola(){
         pCabeza=pCabeza->pSiguiente;
         delete Aux;
         total --;
+		/**@a myMutex.unlock() una vez que se termine la operacion de SacarDeCola() del nodo apuntado 
+		* el mutex será liberado (desbloqueado) y cualquier otra hebra podrá modificarlo
+		*/
         myMutex.unlock();
         return resp;
 	}
